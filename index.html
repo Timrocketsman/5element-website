@@ -37,42 +37,27 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Lenis Smooth Scroll CSS -->
+    <!-- Lenis Smooth Scroll CSS & Custom Styles -->
     <style>
-        html.lenis, html.lenis body {
-            height: auto;
-            width: 100vw;
-            overflow-x: hidden;
-        }
-        .lenis.lenis-smooth {
-            scroll-behavior: auto !important;
-        }
-        .lenis.lenis-smooth [data-lenis-prevent] {
-            overscroll-behavior: contain;
-        }
-        .lenis.lenis-stopped {
-            overflow: hidden;
-        }
-        .lenis.lenis-smooth iframe {
-            pointer-events: none;
-        }
+        html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
+        .lenis.lenis-smooth { scroll-behavior: auto !important; }
+        .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+        .lenis.lenis-stopped { overflow: hidden; }
+        .lenis.lenis-smooth iframe { pointer-events: none; }
 
-        /* Base styles */
         body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #fff; overflow-x: hidden; }
         h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
         
-        /* Custom Space Background */
+        /* Cosmic Background */
         .cosmic-bg {
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
-            z-index: -1;
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
             background: #0F172A;
             background-image: 
                 radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
                 radial-gradient(circle at 85% 30%, rgba(251, 191, 36, 0.05) 0%, transparent 40%);
         }
 
-        /* Glassmorphism utilities */
+        /* Glassmorphism */
         .glass {
             background: rgba(30, 41, 59, 0.6);
             backdrop-filter: blur(16px);
@@ -80,23 +65,27 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        /* Hide scrollbar for horizontal sections */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         
-        /* Loading Screen */
         #loader {
             position: fixed; inset: 0; z-index: 9999;
-            background: #0F172A; display: flex; justify-content: center; items-center;
+            background: #0F172A; display: flex; justify-content: center; align-items: center; flex-direction: column;
             transition: opacity 0.8s ease;
         }
+
+        /* Кастомный скроллбар для модального окна */
+        .modal-scroll::-webkit-scrollbar { width: 6px; }
+        .modal-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
+        .modal-scroll::-webkit-scrollbar-thumb { background: rgba(251,191,36,0.3); border-radius: 10px; }
+        .modal-scroll::-webkit-scrollbar-thumb:hover { background: rgba(251,191,36,0.6); }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-primary">
 
     <!-- Loading Screen -->
-    <div id="loader" class="flex flex-col items-center justify-center">
-        <img src="photo_5321270339092288472_y.jpg" class="h-24 rounded-2xl animate-pulse mb-8 opacity-50">
+    <div id="loader">
+        <img src="photo_5321270339092288472_y.jpg" class="h-24 rounded-2xl animate-pulse mb-8 opacity-50" alt="Loader">
         <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden">
             <div id="loader-bar" class="h-full bg-accent w-0 transition-all duration-300"></div>
         </div>
@@ -104,12 +93,12 @@
 
     <div class="cosmic-bg" id="cosmic-bg"></div>
 
-    <!-- Smart Header (Hides on scroll down, shows on scroll up) -->
-    <header class="fixed w-full top-0 z-50 transition-transform duration-500 glass" id="header">
+    <!-- Smart Header -->
+    <header class="fixed w-full top-0 z-40 transition-transform duration-500 glass" id="header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <a href="#" class="flex-shrink-0 relative group">
-                    <img src="photo_5321270339092288472_y.jpg" title="5 Элемент логотип" alt="5 ЭЛЕМЕНТ" class="h-14 w-auto object-contain rounded-lg relative z-10 transition-transform duration-500 group-hover:scale-105">
+                <a href="#" class="flex-shrink-0 relative group" onclick="window.scrollTo(0,0)">
+                    <img src="photo_5321270339092288472_y.jpg" alt="5 ЭЛЕМЕНТ" class="h-14 w-auto object-contain rounded-lg relative z-10 transition-transform duration-500 group-hover:scale-105">
                     <div class="absolute inset-0 bg-accent blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
                 </a>
                 
@@ -119,7 +108,7 @@
                     <a href="#flavors" class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-accent transition-colors nav-link">Вкусы</a>
                 </nav>
 
-                <div class="hidden md:flex">
+                <div class="hidden md:flex items-center gap-4">
                     <a href="http://t.me/NugaShop_bot" target="_blank" class="relative inline-flex group">
                         <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#FBBF24] via-[#F59E0B] to-[#FBBF24] rounded-full blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                         <button class="relative inline-flex items-center justify-center px-8 py-2.5 text-sm font-bold text-primary transition-all duration-200 bg-accent font-heading rounded-full focus:outline-none uppercase tracking-widest gap-2">
@@ -132,9 +121,8 @@
     </header>
 
     <main>
-        <!-- HERO SECTION (Parallax) -->
+        <!-- HERO SECTION -->
         <section class="relative h-screen flex items-center justify-center overflow-hidden" id="hero">
-            <!-- Floating orbs behind text -->
             <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] hero-orb"></div>
             <div class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px] hero-orb-2"></div>
 
@@ -161,16 +149,13 @@
             </div>
         </section>
 
-        <!-- HORIZONTAL SCROLL SECTION (Z-Pattern Philosophy) -->
-        <!-- On mobile, it stacks vertically. On desktop, it scrolls horizontally -->
+        <!-- HORIZONTAL SCROLL (Philosophy) -->
         <section id="philosophy" class="relative bg-primary">
             <div class="md:hidden px-4 py-20 space-y-12">
-                <!-- Mobile Vertical View -->
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-black font-heading text-accent mb-4">5 ЭЛЕМЕНТ</h2>
                     <p class="text-neutral-400">4 стихии природы, а пятый элемент — это вы. Осознанный человек.</p>
                 </div>
-                <!-- Cards for mobile -->
                 <div class="glass p-8 rounded-3xl border border-white/10 attention-item">
                     <i data-lucide="ban" class="w-12 h-12 text-accent mb-6"></i>
                     <h3 class="text-2xl font-bold mb-4">Без сахарных качелей</h3>
@@ -188,9 +173,7 @@
                 </div>
             </div>
 
-            <!-- Desktop Horizontal Scroll Container -->
             <div class="hidden md:flex horizontal-scroll-wrapper h-screen w-[300vw] overflow-hidden">
-                <!-- Panel 1: Intro -->
                 <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
                     <div class="max-w-2xl">
                         <div class="text-accent font-bold tracking-[0.2em] mb-4 text-sm">ФИЛОСОФИЯ</div>
@@ -201,7 +184,6 @@
                     </div>
                 </div>
                 
-                <!-- Panel 2: No Sugar/Gluten -->
                 <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
                     <div class="grid grid-cols-2 gap-16 max-w-6xl w-full">
                         <div class="glass p-16 rounded-[40px] border border-white/5 relative overflow-hidden group">
@@ -219,7 +201,6 @@
                     </div>
                 </div>
 
-                <!-- Panel 3: Palm Oil -->
                 <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
                     <div class="max-w-4xl text-center glass p-20 rounded-[60px] border border-white/5 shadow-gold-glow">
                         <div class="relative inline-block mb-8">
@@ -237,7 +218,7 @@
             </div>
         </section>
 
-        <!-- DYNAMIC REVEAL SECTION (Texture) -->
+        <!-- TEXTURE -->
         <section id="product" class="py-32 relative z-10 bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
@@ -245,7 +226,6 @@
                     <h2 class="text-5xl md:text-6xl font-black font-heading">Нежное облако, <br><span class="text-neutral-500">а не камень</span></h2>
                 </div>
 
-                <!-- Feature 1 -->
                 <div class="flex flex-col md:flex-row items-center gap-16 mb-32 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -261,7 +241,6 @@
                     </div>
                 </div>
 
-                <!-- Feature 2 (Reversed) -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-32 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -277,7 +256,6 @@
                     </div>
                 </div>
 
-                 <!-- Feature 3 -->
                  <div class="flex flex-col md:flex-row items-center gap-16 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -295,7 +273,7 @@
             </div>
         </section>
 
-        <!-- PINNED STACK SECTION (Flavors) -->
+        <!-- FLAVORS -->
         <section id="flavors" class="py-32 relative bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
@@ -304,7 +282,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Cards with 3D hover effect -->
                     <div class="glass p-10 rounded-[40px] border border-accent/10 hover:border-accent/50 transition-all duration-500 group flavor-card hover:-translate-y-4 hover:shadow-gold-glow">
                         <div class="text-accent mb-6 bg-accent/10 w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
                             <i data-lucide="shell" class="w-10 h-10"></i>
@@ -344,10 +321,9 @@
             </div>
         </section>
 
-        <!-- CTA / PROMO (Parallax Background) -->
+        <!-- CTA -->
         <section class="relative py-40 overflow-hidden" id="promo">
             <div class="absolute inset-0 bg-gradient-to-b from-primary to-black z-0"></div>
-            <!-- Huge glowing text behind -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black font-heading text-white/5 whitespace-nowrap z-0 pointer-events-none promo-bg-text">
                 ALWAYS READY
             </div>
@@ -373,7 +349,7 @@
                         <i data-lucide="shopping-cart" class="w-5 h-5"></i> Яндекс.Маркет
                     </a>
                 </div>
-                <p class="mt-8 text-neutral-500 text-sm font-light">*Отправляем через 5Post. Срок хранения продукта позволяет заказывать впрок.</p>
+                <p class="mt-8 text-neutral-500 text-sm font-light">*Отправляем через 5Post или СДЭК. Получение по коду из SMS.</p>
             </div>
         </section>
     </main>
@@ -382,7 +358,6 @@
     <footer class="bg-black py-16 border-t border-white/10 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                <!-- Brand -->
                 <div>
                     <img src="photo_5321270339092288472_y.jpg" alt="5 ЭЛЕМЕНТ" class="h-12 w-auto object-contain rounded mb-6 opacity-80 hover:opacity-100 transition-opacity">
                     <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6">Создаем вкусные и натуральные продукты, заряжающие энергией без вреда для здоровья.</p>
@@ -392,7 +367,6 @@
                     </div>
                 </div>
 
-                <!-- Links -->
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Навигация</h4>
                     <ul class="space-y-4 text-neutral-500 text-sm font-light">
@@ -403,7 +377,6 @@
                     </ul>
                 </div>
 
-                <!-- Contacts -->
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Контакты</h4>
                     <ul class="space-y-4 text-neutral-500 text-sm font-light">
@@ -413,14 +386,13 @@
                     </ul>
                 </div>
 
-                <!-- Legal -->
                 <div>
                     <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Юр. Информация</h4>
                     <ul class="space-y-2 text-neutral-500 text-xs font-light">
                         <li class="text-white font-medium">ООО «ПЯТЫЙ ЭЛЕМЕНТ»</li>
                         <li>ИНН: 9721194461</li>
-                        <li>ОГРН: 1217700445566 (пример)</li>
-                        <li class="pt-4"><a href="privacy.html" class="text-accent hover:underline">Политика конфиденциальности</a></li>
+                        <li>КПП: 772101001</li>
+                        <li class="pt-4"><a href="#" onclick="openPrivacyModal(event)" class="text-accent hover:underline">Политика конфиденциальности</a></li>
                     </ul>
                 </div>
             </div>
@@ -432,6 +404,75 @@
         </div>
     </footer>
 
+    <!-- COOKIE BANNER -->
+    <div id="cookie-banner" class="fixed bottom-0 w-full glass border-t border-accent/20 p-4 z-50 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-neutral-300 text-sm text-center sm:text-left font-light">
+                Мы используем файлы cookie, чтобы сайт работал лучше. Продолжая использовать сайт, вы соглашаетесь с нашей 
+                <a href="#" onclick="openPrivacyModal(event)" class="text-accent hover:text-white underline transition-colors">Политикой конфиденциальности</a>.
+            </p>
+            <button id="accept-cookies" class="bg-accent text-primary px-8 py-2.5 rounded-xl font-bold text-sm hover:bg-accent-hover transition-colors whitespace-nowrap shadow-gold-glow">
+                Понятно
+            </button>
+        </div>
+    </div>
+
+    <!-- PRIVACY MODAL -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-bg cursor-pointer" onclick="closePrivacyModal()"></div>
+        
+        <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass">
+            <!-- Modal Header -->
+            <div class="flex justify-between items-center p-6 sm:p-8 border-b border-white/5">
+                <h2 class="text-2xl sm:text-3xl font-black font-heading text-white uppercase tracking-tight">Политика конфиденциальности</h2>
+                <button onclick="closePrivacyModal()" class="text-neutral-400 hover:text-accent transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            
+            <!-- Modal Body (Scrollable) -->
+            <div class="p-6 sm:p-8 overflow-y-auto modal-scroll text-neutral-300 font-light leading-relaxed space-y-6">
+                <p class="text-accent font-medium">Редакция от 19 марта 2026 года</p>
+
+                <p>Настоящая Политика конфиденциальности (далее — Политика) действует в отношении всей информации, которую ООО «ПЯТЫЙ ЭЛЕМЕНТ» (ИНН: 9721194461) и/или его аффилированные лица могут получить о пользователе во время использования им сайта <span class="text-white">nuga5element.ru</span>, а также официального Telegram-бота @NugaShop_bot (далее — Сервисы).</p>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4 font-heading">1. Какие данные мы собираем</h3>
+                <p>Мы минимизируем сбор данных и запрашиваем только ту информацию, которая критически необходима для оказания услуг (доставки продукции). К таким данным относятся:</p>
+                <ul class="list-disc pl-6 space-y-2 text-neutral-400">
+                    <li>Имя или псевдоним получателя заказа;</li>
+                    <li>Контактный номер телефона (для получения SMS с кодом выдачи в ПВЗ);</li>
+                    <li>Адрес пункта выдачи заказов (СДЭК, 5Post и др.);</li>
+                    <li>Технические данные (файлы cookie), необходимые для корректной работы веб-сайта.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4 font-heading">2. Цели обработки данных</h3>
+                <p>Мы не используем ваши данные для спам-рассылок и не продаем их третьим лицам. Данные используются исключительно в следующих целях:</p>
+                <ul class="list-disc pl-6 space-y-2 text-neutral-400">
+                    <li>Идентификация стороны в рамках оформления заказа на продукцию;</li>
+                    <li>Связь с пользователем, включая направление уведомлений о статусе заказа;</li>
+                    <li>Передача информации транспортным компаниям (СДЭК, 5Post) исключительно для осуществления доставки заказа;</li>
+                    <li>Улучшение качества работы сайта и Telegram-бота.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4 font-heading">3. Защита и передача данных</h3>
+                <p>Мы применяем необходимые организационные и технические меры для защиты пользовательской информации от неправомерного доступа, уничтожения, изменения, блокирования и копирования. Базы данных, содержащие информацию о заказах граждан РФ, размещены на серверах, находящихся на территории Российской Федерации.</p>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4 font-heading">4. Изменение и удаление данных</h3>
+                <p>Пользователь вправе в любой момент отозвать свое согласие на обработку данных, а также потребовать их удаления. Для этого достаточно направить соответствующий запрос на электронную почту <a href="mailto:nuga5element@yandex.ru" class="text-accent hover:underline">nuga5element@yandex.ru</a> или обратиться в службу поддержки через Telegram.</p>
+
+                <h3 class="text-xl font-bold text-white mt-8 mb-4 font-heading">5. Реквизиты оператора</h3>
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10 text-sm">
+                    <ul class="space-y-2">
+                        <li><strong class="text-white">ООО «ПЯТЫЙ ЭЛЕМЕНТ»</strong></li>
+                        <li>ИНН: 9721194461 / КПП: 772101001</li>
+                        <li>Юридический адрес/Производство: г. Ставрополь, ул. Вокзальная, д. 28</li>
+                        <li>Email: nuga5element@yandex.ru</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- GSAP & Lenis Scripts -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -440,6 +481,8 @@
     <script>
         // Init Icons
         lucide.createIcons();
+
+        let lenis; // Сделаем глобальной для управления из модалки
 
         // 1. Loading Screen Logic
         window.addEventListener('load', () => {
@@ -452,149 +495,121 @@
                 loader.style.opacity = '0';
                 setTimeout(() => {
                     loader.style.display = 'none';
-                    initAnimations(); // Start GSAP after load
+                    initLenisAndGSAP(); 
                 }, 800);
             }, 500);
-        });
 
-        // 2. Smooth Scroll (Lenis)
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
-        // Smart Header
-        let lastScroll = 0;
-        const header = document.getElementById('header');
-        
-        lenis.on('scroll', ({ scroll }) => {
-            if (scroll > 100) {
-                if (scroll > lastScroll) {
-                    header.style.transform = 'translateY(-100%)'; // Hide on scroll down
-                } else {
-                    header.style.transform = 'translateY(0)'; // Show on scroll up
-                    header.classList.add('bg-primary/90', 'shadow-lg');
-                }
-            } else {
-                header.style.transform = 'translateY(0)';
-                header.classList.remove('bg-primary/90', 'shadow-lg');
+            // Показываем Cookie Banner
+            if (!localStorage.getItem('cookiesAccepted')) {
+                setTimeout(() => {
+                    document.getElementById('cookie-banner').classList.remove('translate-y-full');
+                }, 2000);
             }
-            lastScroll = scroll;
         });
 
-        // Update ScrollTrigger with Lenis
-        gsap.registerPlugin(ScrollTrigger);
-        
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-        gsap.ticker.lagSmoothing(0);
+        // 2. Cookie Logic
+        document.getElementById('accept-cookies').addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookie-banner').classList.add('translate-y-full');
+        });
 
-        // 3. GSAP Animations
-        function initAnimations() {
-            // Hero Parallax
-            gsap.to(".hero-content", {
-                yPercent: 50,
-                opacity: 0,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: "#hero",
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: true
+        // 3. Privacy Modal Logic
+        function openPrivacyModal(e) {
+            if(e) e.preventDefault();
+            const modal = document.getElementById('privacy-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // GSAP Анимация появления
+            gsap.fromTo(".modal-bg", {opacity: 0}, {opacity: 1, duration: 0.4});
+            gsap.fromTo(".modal-content", 
+                {opacity: 0, y: 50, scale: 0.95}, 
+                {opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)"}
+            );
+            
+            // Останавливаем скролл сайта на фоне
+            if(lenis) lenis.stop();
+        }
+
+        function closePrivacyModal() {
+            // GSAP Анимация закрытия
+            gsap.to(".modal-bg", {opacity: 0, duration: 0.3});
+            gsap.to(".modal-content", {
+                opacity: 0, y: 50, scale: 0.95, duration: 0.3, 
+                onComplete: () => {
+                    const modal = document.getElementById('privacy-modal');
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    // Включаем скролл сайта обратно
+                    if(lenis) lenis.start();
                 }
             });
+        }
 
-            gsap.to(".hero-orb", {
-                y: 200, scale: 1.2,
-                scrollTrigger: { trigger: "#hero", scrub: 1 }
+        // 4. Smooth Scroll & GSAP
+        function initLenisAndGSAP() {
+            lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
             });
 
-            // Horizontal Scroll (Z-Pattern) for Desktop
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            let lastScroll = 0;
+            const header = document.getElementById('header');
+            
+            lenis.on('scroll', ({ scroll }) => {
+                if (scroll > 100) {
+                    if (scroll > lastScroll) {
+                        header.style.transform = 'translateY(-100%)'; 
+                    } else {
+                        header.style.transform = 'translateY(0)'; 
+                        header.classList.add('bg-primary/90', 'shadow-lg');
+                    }
+                } else {
+                    header.style.transform = 'translateY(0)';
+                    header.classList.remove('bg-primary/90', 'shadow-lg');
+                }
+                lastScroll = scroll;
+            });
+
+            gsap.registerPlugin(ScrollTrigger);
+            lenis.on('scroll', ScrollTrigger.update);
+            gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+            gsap.ticker.lagSmoothing(0);
+
+            // GSAP Animations
+            gsap.to(".hero-content", { yPercent: 50, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true }});
+            gsap.to(".hero-orb", { y: 200, scale: 1.2, scrollTrigger: { trigger: "#hero", scrub: 1 }});
+
             if (window.innerWidth >= 768) {
                 let horizontalSections = gsap.utils.toArray(".horizontal-scroll-wrapper > div");
-                
                 gsap.to(horizontalSections, {
-                    xPercent: -100 * (horizontalSections.length - 1),
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: "#philosophy",
-                        pin: true,
-                        scrub: 1,
-                        snap: 1 / (horizontalSections.length - 1),
-                        end: () => "+=" + document.querySelector(".horizontal-scroll-wrapper").offsetWidth
-                    }
+                    xPercent: -100 * (horizontalSections.length - 1), ease: "none",
+                    scrollTrigger: { trigger: "#philosophy", pin: true, scrub: 1, snap: 1 / (horizontalSections.length - 1), end: () => "+=" + document.querySelector(".horizontal-scroll-wrapper").offsetWidth }
                 });
             }
 
-            // Attention-driven reveals (Items appear and disappear)
             gsap.utils.toArray('.attention-item').forEach(item => {
-                gsap.fromTo(item, 
-                    { opacity: 0, y: 50, scale: 0.95 },
-                    {
-                        opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out",
-                        scrollTrigger: {
-                            trigger: item,
-                            start: "top 85%",
-                            end: "bottom 15%",
-                            // play reverse play reverse = appears when in view, disappears when out
-                            toggleActions: "play reverse play reverse" 
-                        }
-                    }
-                );
+                gsap.fromTo(item, { opacity: 0, y: 50, scale: 0.95 }, { opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out", scrollTrigger: { trigger: item, start: "top 85%", end: "bottom 15%", toggleActions: "play reverse play reverse" }});
             });
 
-            // Features Parallax (Images and text move at different speeds)
             gsap.utils.toArray('.feature-row').forEach(row => {
                 const img = row.querySelector('.feature-img');
                 const text = row.querySelector('.feature-text');
-
-                gsap.fromTo(img, 
-                    { y: 50, opacity: 0 },
-                    { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 80%", scrub: 1 }}
-                );
-
-                gsap.fromTo(text, 
-                    { y: 100, opacity: 0 },
-                    { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 70%", end: "center center", scrub: 1 }}
-                );
+                gsap.fromTo(img, { y: 50, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 80%", scrub: 1 }});
+                gsap.fromTo(text, { y: 100, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 70%", end: "center center", scrub: 1 }});
             });
 
-            // Flavor Cards Stagger Reveal
-            gsap.from(".flavor-card", {
-                y: 100,
-                opacity: 0,
-                duration: 0.8,
-                stagger: 0.2,
-                scrollTrigger: {
-                    trigger: "#flavors",
-                    start: "top 60%",
-                    toggleActions: "play reverse play reverse"
-                }
-            });
-
-            // Promo Huge Text Parallax
-            gsap.to(".promo-bg-text", {
-                x: "-20%",
-                scrollTrigger: {
-                    trigger: "#promo",
-                    start: "top bottom",
-                    end: "bottom top",
-                    scrub: 1
-                }
-            });
+            gsap.from(".flavor-card", { y: 100, opacity: 0, duration: 0.8, stagger: 0.2, scrollTrigger: { trigger: "#flavors", start: "top 60%", toggleActions: "play reverse play reverse" }});
+            gsap.to(".promo-bg-text", { x: "-20%", scrollTrigger: { trigger: "#promo", start: "top bottom", end: "bottom top", scrub: 1 }});
         }
     </script>
 </body>
