@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 ЭЛЕМЕНТ | Космическая энергия в каждом кусочке</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: { DEFAULT: '#0F172A', light: '#1E293B' },
+                        accent: { DEFAULT: '#FBBF24', hover: '#D97706', light: '#FEF3C7' },
+                        secondary: { DEFAULT: '#38BDF8', light: '#E0F2FE' },
+                    },
+                    fontFamily: {
+                        heading: ['Montserrat', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'gold-glow': '0 0 30px rgba(251, 191, 36, 0.15)',
+                        'blue-glow': '0 0 30px rgba(56, 189, 248, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Lenis Smooth Scroll CSS -->
+    <style>
+        html.lenis, html.lenis body {
+            height: auto;
+            width: 100vw;
+            overflow-x: hidden;
+        }
+        .lenis.lenis-smooth {
+            scroll-behavior: auto !important;
+        }
+        .lenis.lenis-smooth [data-lenis-prevent] {
+            overscroll-behavior: contain;
+        }
+        .lenis.lenis-stopped {
+            overflow: hidden;
+        }
+        .lenis.lenis-smooth iframe {
+            pointer-events: none;
+        }
+
+        /* Base styles */
+        body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #fff; overflow-x: hidden; }
+        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
+        
+        /* Custom Space Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background: #0F172A;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 30%, rgba(251, 191, 36, 0.05) 0%, transparent 40%);
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Hide scrollbar for horizontal sections */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        /* Loading Screen */
+        #loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: #0F172A; display: flex; justify-content: center; items-center;
+            transition: opacity 0.8s ease;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-accent selection:text-primary">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="flex flex-col items-center justify-center">
+        <img src="photo_5321270339092288472_y.jpg" class="h-24 rounded-2xl animate-pulse mb-8 opacity-50">
+        <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden">
+            <div id="loader-bar" class="h-full bg-accent w-0 transition-all duration-300"></div>
+        </div>
+    </div>
+
+    <div class="cosmic-bg" id="cosmic-bg"></div>
+
+    <!-- Smart Header (Hides on scroll down, shows on scroll up) -->
+    <header class="fixed w-full top-0 z-50 transition-transform duration-500 glass" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="#" class="flex-shrink-0 relative group">
+                    <img src="photo_5321270339092288472_y.jpg" alt="5 ЭЛЕМЕНТ" class="h-14 w-auto object-contain rounded-lg relative z-10 transition-transform duration-500 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-accent blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500"></div>
+                </a>
+                
+                <nav class="hidden md:flex space-x-10">
+                    <a href="#philosophy" class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-accent transition-colors nav-link">Философия</a>
+                    <a href="#product" class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-accent transition-colors nav-link">Текстура</a>
+                    <a href="#flavors" class="text-xs font-bold uppercase tracking-[0.2em] text-neutral-400 hover:text-accent transition-colors nav-link">Вкусы</a>
+                </nav>
+
+                <div class="hidden md:flex">
+                    <a href="http://t.me/NugaShop_bot" target="_blank" class="relative inline-flex group">
+                        <div class="absolute transition-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#FBBF24] via-[#F59E0B] to-[#FBBF24] rounded-full blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
+                        <button class="relative inline-flex items-center justify-center px-8 py-2.5 text-sm font-bold text-primary transition-all duration-200 bg-accent font-heading rounded-full focus:outline-none uppercase tracking-widest gap-2">
+                            <i data-lucide="bot" class="w-4 h-4"></i> Купить
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION (Parallax) -->
+        <section class="relative h-screen flex items-center justify-center overflow-hidden" id="hero">
+            <!-- Floating orbs behind text -->
+            <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-accent/20 rounded-full blur-[120px] hero-orb"></div>
+            <div class="absolute bottom-1/3 right-1/4 w-[500px] h-[500px] bg-secondary/10 rounded-full blur-[150px] hero-orb-2"></div>
+
+            <div class="relative z-10 text-center px-4 max-w-5xl mx-auto hero-content">
+                <div class="inline-flex items-center gap-3 px-6 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-8 overflow-hidden group">
+                    <div class="w-2 h-2 rounded-full bg-accent animate-ping"></div>
+                    <span class="text-xs font-bold uppercase tracking-[0.3em] text-neutral-300">Новая парадигма вкуса</span>
+                    <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
+                </div>
+                
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-heading leading-tight tracking-tighter mb-6">
+                    Оставьте пальму <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200 block mt-2">обезьянам.</span>
+                </h1>
+                
+                <p class="text-lg md:text-2xl text-neutral-400 font-light max-w-2xl mx-auto mb-12">
+                    Натуральная нуга без компромиссов. <br>0% сахара. 0% глютена. <strong class="text-white font-medium">100% чистая энергия.</strong>
+                </p>
+
+                <div class="flex items-center justify-center gap-4 text-sm font-medium text-neutral-500 animate-bounce mt-20">
+                    <span class="uppercase tracking-widest text-xs">Скролл для погружения</span>
+                    <i data-lucide="arrow-down" class="w-4 h-4 text-accent"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- HORIZONTAL SCROLL SECTION (Z-Pattern Philosophy) -->
+        <!-- On mobile, it stacks vertically. On desktop, it scrolls horizontally -->
+        <section id="philosophy" class="relative bg-primary">
+            <div class="md:hidden px-4 py-20 space-y-12">
+                <!-- Mobile Vertical View -->
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-black font-heading text-accent mb-4">5 ЭЛЕМЕНТ</h2>
+                    <p class="text-neutral-400">4 стихии природы, а пятый элемент — это вы. Осознанный человек.</p>
+                </div>
+                <!-- Cards for mobile -->
+                <div class="glass p-8 rounded-3xl border border-white/10 attention-item">
+                    <i data-lucide="ban" class="w-12 h-12 text-accent mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Без сахарных качелей</h3>
+                    <p class="text-neutral-400">Только ровная энергия без скачков инсулина и тяжести.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl border border-white/10 attention-item">
+                    <i data-lucide="wheat-off" class="w-12 h-12 text-secondary mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Без глютена</h3>
+                    <p class="text-neutral-400">Легко усваивается, не вызывает скрытого воспаления кишечника.</p>
+                </div>
+                <div class="glass p-8 rounded-3xl border border-white/10 attention-item">
+                    <i data-lucide="heart-pulse" class="w-12 h-12 text-red-400 mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">Чистый состав</h3>
+                    <p class="text-neutral-400">Никаких дешевых трансжиров. Только качественные орехи и белок.</p>
+                </div>
+            </div>
+
+            <!-- Desktop Horizontal Scroll Container -->
+            <div class="hidden md:flex horizontal-scroll-wrapper h-screen w-[300vw] overflow-hidden">
+                <!-- Panel 1: Intro -->
+                <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
+                    <div class="max-w-2xl">
+                        <div class="text-accent font-bold tracking-[0.2em] mb-4 text-sm">ФИЛОСОФИЯ</div>
+                        <h2 class="text-6xl font-black font-heading mb-8 leading-tight">Почему <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-white">5 ЭЛЕМЕНТ?</span></h2>
+                        <p class="text-2xl text-neutral-400 font-light leading-relaxed">
+                            4 элемента — земля, вода, воздух, огонь. А пятый — это человек. Сознательный. Живой. Выбирающий то, что дает энергию, а не забирает её.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Panel 2: No Sugar/Gluten -->
+                <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
+                    <div class="grid grid-cols-2 gap-16 max-w-6xl w-full">
+                        <div class="glass p-16 rounded-[40px] border border-white/5 relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/20 transition-all duration-700"></div>
+                            <i data-lucide="ban" class="w-16 h-16 text-accent mb-8"></i>
+                            <h3 class="text-4xl font-bold font-heading mb-6">Без сахара</h3>
+                            <p class="text-xl text-neutral-400 font-light">Мы отказались от белого сахара. Наша нуга не вызывает скачков инсулина. Только фокус и продуктивность.</p>
+                        </div>
+                        <div class="glass p-16 rounded-[40px] border border-white/5 relative overflow-hidden group">
+                            <div class="absolute bottom-0 left-0 w-64 h-64 bg-secondary/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 group-hover:bg-secondary/20 transition-all duration-700"></div>
+                            <i data-lucide="wheat-off" class="w-16 h-16 text-secondary mb-8"></i>
+                            <h3 class="text-4xl font-bold font-heading mb-6">Без глютена</h3>
+                            <p class="text-xl text-neutral-400 font-light">Забота о кишечнике. Наши батончики идеально подходят спортсменам и детям, не вызывая тяжести.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Panel 3: Palm Oil -->
+                <div class="w-screen h-screen flex items-center justify-center px-20 shrink-0 relative">
+                    <div class="max-w-4xl text-center glass p-20 rounded-[60px] border border-white/5 shadow-gold-glow">
+                        <div class="relative inline-block mb-8">
+                            <i data-lucide="tree-palm" class="w-24 h-24 text-neutral-500"></i>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-32 h-2 bg-red-500 rotate-45 rounded-full shadow-[0_0_15px_rgba(239,68,68,0.5)]"></div>
+                            </div>
+                        </div>
+                        <h3 class="text-5xl font-black font-heading mb-8">Свобода от трансжиров</h3>
+                        <p class="text-2xl text-neutral-300 font-light leading-relaxed">
+                            Мы не экономим на вашем здоровье. Заменили дешевую химию на чистые суперфуды, яичный белок и инвертированный сироп.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DYNAMIC REVEAL SECTION (Texture) -->
+        <section id="product" class="py-32 relative z-10 bg-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-24 attention-item">
+                    <div class="text-secondary font-bold tracking-[0.2em] mb-4 text-sm uppercase">Технология</div>
+                    <h2 class="text-5xl md:text-6xl font-black font-heading">Нежное облако, <br><span class="text-neutral-500">а не камень</span></h2>
+                </div>
+
+                <!-- Feature 1 -->
+                <div class="flex flex-col md:flex-row items-center gap-16 mb-32 feature-row">
+                    <div class="w-full md:w-1/2 flex justify-center feature-img">
+                        <div class="relative w-72 h-72 md:w-96 md:h-96">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-accent/20 to-transparent rounded-full animate-[spin_10s_linear_infinite]"></div>
+                            <div class="absolute inset-4 glass rounded-full flex items-center justify-center border border-accent/20">
+                                <i data-lucide="droplet" class="w-20 h-20 text-accent"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 feature-text">
+                        <h3 class="text-3xl font-bold font-heading mb-6">Инвертированный сироп</h3>
+                        <p class="text-xl text-neutral-400 leading-relaxed font-light">Секрет идеальной тягучести. Фруктоза и глюкоза в правильной пропорции создают текстуру, которая тает во рту, не перегружая поджелудочную.</p>
+                    </div>
+                </div>
+
+                <!-- Feature 2 (Reversed) -->
+                <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-32 feature-row">
+                    <div class="w-full md:w-1/2 flex justify-center feature-img">
+                        <div class="relative w-72 h-72 md:w-96 md:h-96">
+                            <div class="absolute inset-0 bg-gradient-to-tl from-white/20 to-transparent rounded-full animate-[spin_12s_linear_infinite_reverse]"></div>
+                            <div class="absolute inset-4 glass rounded-full flex items-center justify-center border border-white/20">
+                                <i data-lucide="egg" class="w-20 h-20 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 feature-text text-left md:text-right">
+                        <h3 class="text-3xl font-bold font-heading mb-6">Яичный белок (Альбумин)</h3>
+                        <p class="text-xl text-neutral-400 leading-relaxed font-light">Взбиваем до состояния невесомости. Это не просто сладость — это строительный материал для мышц и гарантия долгой сытости.</p>
+                    </div>
+                </div>
+
+                 <!-- Feature 3 -->
+                 <div class="flex flex-col md:flex-row items-center gap-16 feature-row">
+                    <div class="w-full md:w-1/2 flex justify-center feature-img">
+                        <div class="relative w-72 h-72 md:w-96 md:h-96">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-secondary/20 to-transparent rounded-[40px] animate-[spin_15s_linear_infinite]"></div>
+                            <div class="absolute inset-4 glass rounded-[40px] flex items-center justify-center border border-secondary/20 rotate-12 hover:rotate-0 transition-transform duration-700">
+                                <i data-lucide="nut" class="w-20 h-20 text-secondary"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full md:w-1/2 feature-text">
+                        <h3 class="text-3xl font-bold font-heading mb-6">Суперфуды и Орехи</h3>
+                        <p class="text-xl text-neutral-400 leading-relaxed font-light">Более 20 сочетаний: миндаль, чиа, клюква, манго. Мощный заряд витаминов, цинка и антиоксидантов прямо на ходу.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PINNED STACK SECTION (Flavors) -->
+        <section id="flavors" class="py-32 relative bg-primary">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-24 attention-item">
+                    <h2 class="text-5xl md:text-7xl font-black font-heading mb-6">Цветотерапия</h2>
+                    <p class="text-2xl text-neutral-400 font-light">Найди свой вкус. Зарядись энергией.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Cards with 3D hover effect -->
+                    <div class="glass p-10 rounded-[40px] border border-accent/10 hover:border-accent/50 transition-all duration-500 group flavor-card hover:-translate-y-4 hover:shadow-gold-glow">
+                        <div class="text-accent mb-6 bg-accent/10 w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="shell" class="w-10 h-10"></i>
+                        </div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-accent mb-2">Арахис База</div>
+                        <h3 class="text-3xl font-bold font-heading mb-4 text-white">Хруст ищет пару</h3>
+                        <p class="text-neutral-400 font-light">С манго, изюмом, клюквой, какао. Мощный протеин.</p>
+                    </div>
+
+                    <div class="glass p-10 rounded-[40px] border border-secondary/10 hover:border-secondary/50 transition-all duration-500 group flavor-card hover:-translate-y-4 hover:shadow-blue-glow mt-0 md:mt-16">
+                        <div class="text-secondary mb-6 bg-secondary/10 w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="palmtree" class="w-10 h-10"></i>
+                        </div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">Кокос База</div>
+                        <h3 class="text-3xl font-bold font-heading mb-4 text-white">Тайны тропиков</h3>
+                        <p class="text-neutral-400 font-light">С лимоном, клюквой. L-карнитин для метаболизма.</p>
+                    </div>
+
+                    <div class="glass p-10 rounded-[40px] border border-purple-500/10 hover:border-purple-500/50 transition-all duration-500 group flavor-card hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)]">
+                        <div class="text-purple-400 mb-6 bg-purple-500/10 w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="brain" class="w-10 h-10"></i>
+                        </div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-purple-400 mb-2">Грецкий орех</div>
+                        <h3 class="text-3xl font-bold font-heading mb-4 text-white">Мозговой штурм</h3>
+                        <p class="text-neutral-400 font-light">Омега-3 для памяти. С какао и сливой (антистресс).</p>
+                    </div>
+
+                    <div class="glass p-10 rounded-[40px] border border-green-500/10 hover:border-green-500/50 transition-all duration-500 group flavor-card hover:-translate-y-4 hover:shadow-[0_0_30px_rgba(34,197,94,0.15)] mt-0 md:mt-16">
+                        <div class="text-green-400 mb-6 bg-green-500/10 w-20 h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                            <i data-lucide="leaf" class="w-10 h-10"></i>
+                        </div>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-green-400 mb-2">Чиа & Семечки</div>
+                        <h3 class="text-3xl font-bold font-heading mb-4 text-white">Суперфуд</h3>
+                        <p class="text-neutral-400 font-light">Детокс на ходу. Идеально для веганов и зожников.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA / PROMO (Parallax Background) -->
+        <section class="relative py-40 overflow-hidden" id="promo">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary to-black z-0"></div>
+            <!-- Huge glowing text behind -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black font-heading text-white/5 whitespace-nowrap z-0 pointer-events-none promo-bg-text">
+                ALWAYS READY
+            </div>
+            
+            <div class="relative z-10 max-w-4xl mx-auto px-4 text-center attention-item">
+                <div class="inline-block bg-accent text-primary font-bold px-6 py-2 rounded-full text-sm mb-8 uppercase tracking-widest shadow-gold-glow animate-pulse">
+                    Оптовое предложение
+                </div>
+                <h2 class="text-5xl md:text-7xl font-black font-heading mb-8">Заряди свой <span class="text-accent">бизнес</span> или <span class="text-accent">семью</span></h2>
+                <p class="text-2xl text-neutral-400 font-light mb-12">
+                    Боксы по 15 и 70 штук. <br>Идеально для офиса, фитнес-клуба или домашнего запаса.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                    <a href="http://t.me/NugaShop_bot" target="_blank" class="relative group">
+                        <div class="absolute -inset-1 bg-gradient-to-r from-accent to-yellow-600 rounded-2xl blur opacity-70 group-hover:opacity-100 transition duration-200"></div>
+                        <button class="relative w-full sm:w-auto bg-primary border border-white/10 px-10 py-5 rounded-2xl flex items-center justify-center gap-3 text-white font-bold uppercase tracking-wider hover:bg-white/5 transition-colors">
+                            <i data-lucide="send" class="w-5 h-5 text-accent"></i> В Telegram Бот
+                        </button>
+                    </a>
+                    
+                    <a href="https://market.yandex.ru/cc/6VfrhY" target="_blank" class="glass px-10 py-5 rounded-2xl flex items-center justify-center gap-3 text-white font-bold uppercase tracking-wider hover:bg-white/10 transition-all border border-white/20 hover:border-white/40">
+                        <i data-lucide="shopping-cart" class="w-5 h-5"></i> Яндекс.Маркет
+                    </a>
+                </div>
+                <p class="mt-8 text-neutral-500 text-sm font-light">*Отправляем через 5Post. Срок хранения продукта позволяет заказывать впрок.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black py-16 border-t border-white/10 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div>
+                    <img src="photo_5321270339092288472_y.jpg" alt="5 ЭЛЕМЕНТ" class="h-12 w-auto object-contain rounded mb-6 opacity-80 hover:opacity-100 transition-opacity">
+                    <p class="text-neutral-500 text-sm font-light leading-relaxed mb-6">Создаем вкусные и натуральные продукты, заряжающие энергией без вреда для здоровья.</p>
+                    <div class="flex gap-4">
+                        <a href="https://t.me/ooo5element" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-accent hover:border-accent transition-all"><i data-lucide="send" class="w-4 h-4"></i></a>
+                        <a href="https://vk.com/ooo_5element" target="_blank" class="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:text-[#0077FF] hover:border-[#0077FF] transition-all font-bold text-xs">VK</a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Навигация</h4>
+                    <ul class="space-y-4 text-neutral-500 text-sm font-light">
+                        <li><a href="#philosophy" class="hover:text-accent transition-colors">Философия</a></li>
+                        <li><a href="#product" class="hover:text-accent transition-colors">Технология</a></li>
+                        <li><a href="#flavors" class="hover:text-accent transition-colors">Вкусы</a></li>
+                        <li><a href="https://nuga5element.ru" target="_blank" class="hover:text-accent transition-colors">Сайт компании</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contacts -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Контакты</h4>
+                    <ul class="space-y-4 text-neutral-500 text-sm font-light">
+                        <li><a href="tel:+79936776128" class="hover:text-accent transition-colors flex items-center gap-3"><i data-lucide="phone" class="w-4 h-4"></i> +7 (993) 677-61-28</a></li>
+                        <li><a href="mailto:nuga5element@yandex.ru" class="hover:text-accent transition-colors flex items-center gap-3"><i data-lucide="mail" class="w-4 h-4"></i> nuga5element@yandex.ru</a></li>
+                        <li class="flex items-start gap-3"><i data-lucide="map-pin" class="w-4 h-4 mt-1"></i> г. Ставрополь,<br>ул. Вокзальная, 28</li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Юр. Информация</h4>
+                    <ul class="space-y-2 text-neutral-500 text-xs font-light">
+                        <li class="text-white font-medium">ООО «ПЯТЫЙ ЭЛЕМЕНТ»</li>
+                        <li>ИНН: 9721194461</li>
+                        <li>ОГРН: 1217700445566 (пример)</li>
+                        <li class="pt-4"><a href="privacy.html" class="text-accent hover:underline">Политика конфиденциальности</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-neutral-600 font-light">
+                <p>© 2024-2026 ООО «ПЯТЫЙ ЭЛЕМЕНТ».</p>
+                <p>Разработано с заботой о здоровье.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- GSAP & Lenis Scripts -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // 1. Loading Screen Logic
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            const bar = document.getElementById('loader-bar');
+            
+            bar.style.width = '100%';
+            
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                    initAnimations(); // Start GSAP after load
+                }, 800);
+            }, 500);
+        });
+
+        // 2. Smooth Scroll (Lenis)
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+            infinite: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Smart Header
+        let lastScroll = 0;
+        const header = document.getElementById('header');
+        
+        lenis.on('scroll', ({ scroll }) => {
+            if (scroll > 100) {
+                if (scroll > lastScroll) {
+                    header.style.transform = 'translateY(-100%)'; // Hide on scroll down
+                } else {
+                    header.style.transform = 'translateY(0)'; // Show on scroll up
+                    header.classList.add('bg-primary/90', 'shadow-lg');
+                }
+            } else {
+                header.style.transform = 'translateY(0)';
+                header.classList.remove('bg-primary/90', 'shadow-lg');
+            }
+            lastScroll = scroll;
+        });
+
+        // Update ScrollTrigger with Lenis
+        gsap.registerPlugin(ScrollTrigger);
+        
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
+        gsap.ticker.lagSmoothing(0);
+
+        // 3. GSAP Animations
+        function initAnimations() {
+            // Hero Parallax
+            gsap.to(".hero-content", {
+                yPercent: 50,
+                opacity: 0,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: "#hero",
+                    start: "top top",
+                    end: "bottom top",
+                    scrub: true
+                }
+            });
+
+            gsap.to(".hero-orb", {
+                y: 200, scale: 1.2,
+                scrollTrigger: { trigger: "#hero", scrub: 1 }
+            });
+
+            // Horizontal Scroll (Z-Pattern) for Desktop
+            if (window.innerWidth >= 768) {
+                let horizontalSections = gsap.utils.toArray(".horizontal-scroll-wrapper > div");
+                
+                gsap.to(horizontalSections, {
+                    xPercent: -100 * (horizontalSections.length - 1),
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: "#philosophy",
+                        pin: true,
+                        scrub: 1,
+                        snap: 1 / (horizontalSections.length - 1),
+                        end: () => "+=" + document.querySelector(".horizontal-scroll-wrapper").offsetWidth
+                    }
+                });
+            }
+
+            // Attention-driven reveals (Items appear and disappear)
+            gsap.utils.toArray('.attention-item').forEach(item => {
+                gsap.fromTo(item, 
+                    { opacity: 0, y: 50, scale: 0.95 },
+                    {
+                        opacity: 1, y: 0, scale: 1, duration: 1, ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: item,
+                            start: "top 85%",
+                            end: "bottom 15%",
+                            // play reverse play reverse = appears when in view, disappears when out
+                            toggleActions: "play reverse play reverse" 
+                        }
+                    }
+                );
+            });
+
+            // Features Parallax (Images and text move at different speeds)
+            gsap.utils.toArray('.feature-row').forEach(row => {
+                const img = row.querySelector('.feature-img');
+                const text = row.querySelector('.feature-text');
+
+                gsap.fromTo(img, 
+                    { y: 50, opacity: 0 },
+                    { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 80%", scrub: 1 }}
+                );
+
+                gsap.fromTo(text, 
+                    { y: 100, opacity: 0 },
+                    { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 70%", end: "center center", scrub: 1 }}
+                );
+            });
+
+            // Flavor Cards Stagger Reveal
+            gsap.from(".flavor-card", {
+                y: 100,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                scrollTrigger: {
+                    trigger: "#flavors",
+                    start: "top 60%",
+                    toggleActions: "play reverse play reverse"
+                }
+            });
+
+            // Promo Huge Text Parallax
+            gsap.to(".promo-bg-text", {
+                x: "-20%",
+                scrollTrigger: {
+                    trigger: "#promo",
+                    start: "top bottom",
+                    end: "bottom top",
+                    scrub: 1
+                }
+            });
+        }
+    </script>
+</body>
+</html>
