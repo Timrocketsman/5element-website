@@ -1,0 +1,6 @@
+{
+  "name": "5element-web",
+  "scripts": {
+    "start": "npx serve -s ."
+  }
+}
