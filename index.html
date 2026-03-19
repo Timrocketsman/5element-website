@@ -79,6 +79,12 @@
         .modal-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
         .modal-scroll::-webkit-scrollbar-thumb { background: rgba(251,191,36,0.3); border-radius: 10px; }
         .modal-scroll::-webkit-scrollbar-thumb:hover { background: rgba(251,191,36,0.6); }
+        
+        /* Фикс для модалки, чтобы она скроллилась на мобилках */
+        .modal-scroll {
+            overscroll-behavior: contain;
+            -webkit-overflow-scrolling: touch;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-primary">
@@ -133,7 +139,8 @@
                     <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000"></div>
                 </div>
                 
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-heading leading-tight tracking-tighter mb-6">
+                <!-- Уменьшил базовый размер шрифта до 4xl для мобилок -->
+                <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black font-heading leading-tight tracking-tighter mb-6">
                     Оставьте пальму <br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-yellow-200 block mt-2">обезьянам.</span>
                 </h1>
@@ -153,7 +160,8 @@
         <section id="philosophy" class="relative bg-primary">
             <div class="md:hidden px-4 py-20 space-y-12">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl font-black font-heading text-accent mb-4">5 ЭЛЕМЕНТ</h2>
+                    <!-- Уменьшил размер шрифта для мобилок -->
+                    <h2 class="text-3xl font-black font-heading text-accent mb-4">5 ЭЛЕМЕНТ</h2>
                     <p class="text-neutral-400">4 стихии природы, а пятый элемент — это вы. Осознанный человек.</p>
                 </div>
                 <div class="glass p-8 rounded-3xl border border-white/10 attention-item">
@@ -223,7 +231,8 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
                     <div class="text-secondary font-bold tracking-[0.2em] mb-4 text-sm uppercase">Технология</div>
-                    <h2 class="text-5xl md:text-6xl font-black font-heading">Нежное облако, <br><span class="text-neutral-500">а не камень</span></h2>
+                    <!-- Адаптивный заголовок -->
+                    <h2 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading">Нежное облако, <br><span class="text-neutral-500">а не камень</span></h2>
                 </div>
 
                 <div class="flex flex-col md:flex-row items-center gap-16 mb-32 feature-row">
@@ -277,8 +286,9 @@
         <section id="flavors" class="py-32 relative bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
-                    <h2 class="text-5xl md:text-7xl font-black font-heading mb-6">Цветотерапия</h2>
-                    <p class="text-2xl text-neutral-400 font-light">Найди свой вкус. Зарядись энергией.</p>
+                    <!-- Уменьшил базовый размер шрифта до 4xl (36px), чтобы Цветотерапия влезла в 9:16 -->
+                    <h2 class="text-4xl sm:text-5xl md:text-7xl font-black font-heading mb-6">Цветотерапия</h2>
+                    <p class="text-xl md:text-2xl text-neutral-400 font-light">Найди свой вкус. Зарядись энергией.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -332,8 +342,8 @@
                 <div class="inline-block bg-accent text-primary font-bold px-6 py-2 rounded-full text-sm mb-8 uppercase tracking-widest shadow-gold-glow animate-pulse">
                     Оптовое предложение
                 </div>
-                <h2 class="text-5xl md:text-7xl font-black font-heading mb-8">Заряди свой <span class="text-accent">бизнес</span> или <span class="text-accent">семью</span></h2>
-                <p class="text-2xl text-neutral-400 font-light mb-12">
+                <h2 class="text-4xl sm:text-5xl md:text-7xl font-black font-heading mb-8">Заряди свой <span class="text-accent">бизнес</span> или <span class="text-accent">семью</span></h2>
+                <p class="text-xl md:text-2xl text-neutral-400 font-light mb-12">
                     Боксы по 15 и 70 штук. <br>Идеально для офиса, фитнес-клуба или домашнего запаса.
                 </p>
                 
@@ -418,10 +428,11 @@
     </div>
 
     <!-- PRIVACY MODAL -->
-    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6">
+    <!-- Атрибут data-lenis-prevent говорит Lenis отдать скролл этому элементу -->
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" data-lenis-prevent="true">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-bg cursor-pointer" onclick="closePrivacyModal()"></div>
         
-        <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass">
+        <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass z-10">
             <!-- Modal Header -->
             <div class="flex justify-between items-center p-6 sm:p-8 border-b border-white/5">
                 <h2 class="text-2xl sm:text-3xl font-black font-heading text-white uppercase tracking-tight">Политика конфиденциальности</h2>
@@ -431,7 +442,8 @@
             </div>
             
             <!-- Modal Body (Scrollable) -->
-            <div class="p-6 sm:p-8 overflow-y-auto modal-scroll text-neutral-300 font-light leading-relaxed space-y-6">
+            <!-- Обязательный атрибут data-lenis-prevent для плавного скролла контента мышью/свайпом -->
+            <div class="p-6 sm:p-8 overflow-y-auto modal-scroll text-neutral-300 font-light leading-relaxed space-y-6" data-lenis-prevent="true">
                 <p class="text-accent font-medium">Редакция от 19 марта 2026 года</p>
 
                 <p>Настоящая Политика конфиденциальности (далее — Политика) действует в отношении всей информации, которую ООО «ПЯТЫЙ ЭЛЕМЕНТ» (ИНН: 9721194461) и/или его аффилированные лица могут получить о пользователе во время использования им сайта <span class="text-white">nuga5element.ru</span>, а также официального Telegram-бота @NugaShop_bot (далее — Сервисы).</p>
@@ -479,12 +491,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
-        // Init Icons
         lucide.createIcons();
 
-        let lenis; // Сделаем глобальной для управления из модалки
+        let lenis; 
 
-        // 1. Loading Screen Logic
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
             const bar = document.getElementById('loader-bar');
@@ -499,7 +509,6 @@
                 }, 800);
             }, 500);
 
-            // Показываем Cookie Banner
             if (!localStorage.getItem('cookiesAccepted')) {
                 setTimeout(() => {
                     document.getElementById('cookie-banner').classList.remove('translate-y-full');
@@ -507,32 +516,29 @@
             }
         });
 
-        // 2. Cookie Logic
         document.getElementById('accept-cookies').addEventListener('click', () => {
             localStorage.setItem('cookiesAccepted', 'true');
             document.getElementById('cookie-banner').classList.add('translate-y-full');
         });
 
-        // 3. Privacy Modal Logic
         function openPrivacyModal(e) {
             if(e) e.preventDefault();
             const modal = document.getElementById('privacy-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             
-            // GSAP Анимация появления
             gsap.fromTo(".modal-bg", {opacity: 0}, {opacity: 1, duration: 0.4});
             gsap.fromTo(".modal-content", 
                 {opacity: 0, y: 50, scale: 0.95}, 
                 {opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)"}
             );
             
-            // Останавливаем скролл сайта на фоне
-            if(lenis) lenis.stop();
+            // Больше не используем lenis.stop()! Он ломает колесико мыши внутри модалки.
+            // Благодаря атрибуту data-lenis-prevent="true" скролл сайта и так блокируется, 
+            // а скролл внутри модалки работает штатно.
         }
 
         function closePrivacyModal() {
-            // GSAP Анимация закрытия
             gsap.to(".modal-bg", {opacity: 0, duration: 0.3});
             gsap.to(".modal-content", {
                 opacity: 0, y: 50, scale: 0.95, duration: 0.3, 
@@ -540,13 +546,10 @@
                     const modal = document.getElementById('privacy-modal');
                     modal.classList.add('hidden');
                     modal.classList.remove('flex');
-                    // Включаем скролл сайта обратно
-                    if(lenis) lenis.start();
                 }
             });
         }
 
-        // 4. Smooth Scroll & GSAP
         function initLenisAndGSAP() {
             lenis = new Lenis({
                 duration: 1.2,
@@ -585,7 +588,6 @@
             gsap.ticker.add((time) => { lenis.raf(time * 1000); });
             gsap.ticker.lagSmoothing(0);
 
-            // GSAP Animations
             gsap.to(".hero-content", { yPercent: 50, opacity: 0, ease: "none", scrollTrigger: { trigger: "#hero", start: "top top", end: "bottom top", scrub: true }});
             gsap.to(".hero-orb", { y: 200, scale: 1.2, scrollTrigger: { trigger: "#hero", scrub: 1 }});
 
