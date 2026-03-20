@@ -74,7 +74,7 @@
 </head>
 <body class="antialiased selection:bg-accent selection:text-primary">
 
-    <!-- Loading Screen (ИСПРАВЛЕНО: mix-blend-mode убирает рамку) -->
+    <!-- Loading Screen -->
     <div id="loader">
         <img src="logo.jpg" class="h-28 md:h-32 animate-pulse mb-8 opacity-90" alt="Loader" style="mix-blend-mode: lighten;">
         <div class="w-48 h-1 bg-white/10 rounded-full overflow-hidden">
@@ -84,7 +84,7 @@
 
     <div class="cosmic-bg"></div>
 
-    <!-- Header (ИСПРАВЛЕНО: mix-blend-mode убирает рамку логотипа) -->
+    <!-- Header -->
     <header class="fixed w-full top-0 z-40 transition-transform duration-500 glass" id="header">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20 md:h-24">
@@ -128,7 +128,7 @@
             </div>
         </section>
 
-        <!-- PHILOSOPHY (Horizontal) (ИСПРАВЛЕНО: Яркость текста повышена) -->
+        <!-- PHILOSOPHY -->
         <section id="philosophy" class="relative bg-primary">
             <div class="md:hidden px-4 py-20 space-y-12">
                 <div class="text-center mb-12"><h2 class="text-3xl font-black font-heading text-accent uppercase">5 ЭЛЕМЕНТ</h2></div>
@@ -143,7 +143,7 @@
             </div>
         </section>
 
-        <!-- TEXTURE -->
+        <!-- TEXTURE (ИСПРАВЛЕНО: Адаптивные шрифты для длинных слов, чтобы не вылезали за края на мобильных) -->
         <section id="product" class="py-32 relative z-10 bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
@@ -159,7 +159,8 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text">
-                        <h3 class="text-3xl font-bold font-heading mb-6 uppercase">Инвертированный сироп</h3>
+                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК, добавлено break-words -->
+                        <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words hyphens-auto">Инвертированный сироп</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Секрет идеальной тягучести. Фруктоза и глюкоза в правильной пропорции создают текстуру, которая тает во рту, не перегружая поджелудочную.</p>
                     </div>
                 </div>
@@ -172,7 +173,8 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text text-left md:text-right">
-                        <h3 class="text-3xl font-bold font-heading mb-6 uppercase">Яичный белок (Альбумин)</h3>
+                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК -->
+                        <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words">Яичный белок (Альбумин)</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Взбиваем до состояния невесомости. Это не просто сладость — это строительный материал для мышц и гарантия долгой сытости.</p>
                     </div>
                 </div>
@@ -185,14 +187,15 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text">
-                        <h3 class="text-3xl font-bold font-heading mb-6 uppercase">Суперфуды и Орехи</h3>
+                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК -->
+                        <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words">Суперфуды и Орехи</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Более 20 сочетаний: миндаль, чиа, клюква, манго. Мощный заряд витаминов, цинка и антиоксидантов прямо на ходу.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FLAVORS (FULL 18 CARDS GALLERY) -->
+        <!-- FLAVORS -->
         <section id="flavors" class="py-32 relative bg-primary overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 attention-item">
@@ -440,7 +443,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                 <div>
-                    <!-- ИСПРАВЛЕНО: mix-blend-mode убирает рамку логотипа -->
                     <img src="logo.jpg" alt="5 ЭЛЕМЕНТ" class="h-12 w-auto object-contain mb-6 opacity-90 hover:opacity-100 transition-opacity" style="mix-blend-mode: lighten;">
                     <p class="text-neutral-400 text-sm font-light leading-relaxed mb-6">Создаем вкусные и натуральные продукты, заряжающие энергией без вреда для здоровья.</p>
                     <div class="flex gap-4">
@@ -500,12 +502,11 @@
         </div>
     </div>
 
-    <!-- PRIVACY MODAL (ПОЛНОСТЬЮ ПЕРЕПИСАННЫЙ ТЕКСТ И ФИКС ЗАГОЛОВКА) -->
+    <!-- PRIVACY MODAL -->
     <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" data-lenis-prevent="true">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-bg cursor-pointer" onclick="closePrivacyModal()"></div>
         <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass z-10">
             <div class="flex justify-between items-center p-6 sm:p-8 border-b border-white/5">
-                <!-- ИСПРАВЛЕНО: Адаптивный заголовок с переносом строк (text-lg на мобильных) -->
                 <h2 class="text-lg sm:text-3xl font-black font-heading text-white uppercase tracking-tight leading-snug break-words hyphens-auto">Политика конфиденциальности</h2>
                 <button onclick="closePrivacyModal()" class="text-neutral-400 hover:text-accent transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10"><i data-lucide="x" class="w-6 h-6"></i></button>
             </div>
@@ -624,8 +625,9 @@
                 });
             }
 
+            // ИСПРАВЛЕНО: 'play none none none' защищает от исчезновения блоков при "резиновом" скролле на телефоне.
             gsap.utils.toArray('.attention-item').forEach(item => {
-                gsap.fromTo(item, { opacity: 0, y: 30 }, { opacity: 1, y: 0, scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play reverse play reverse" }});
+                gsap.fromTo(item, { opacity: 0, y: 30 }, { opacity: 1, y: 0, scrollTrigger: { trigger: item, start: "top 85%", toggleActions: "play none none none" }});
             });
 
             gsap.utils.toArray('.feature-row').forEach(row => {
