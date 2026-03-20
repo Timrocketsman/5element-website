@@ -32,7 +32,7 @@
     </script>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -363,8 +363,12 @@
         <!-- CTA -->
         <section class="relative py-40 overflow-hidden" id="promo">
             <div class="absolute inset-0 bg-gradient-to-b from-primary to-black z-0"></div>
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[15vw] font-black font-heading text-white/5 whitespace-nowrap z-0 pointer-events-none promo-bg-text">
-                СЛАДКАЯ НУГА
+            
+            <!-- СЛАДКАЯ НУГА - Фон. Центрирование через Flexbox, размер увеличен для ПК, шрифт максимальной толщины (black) -->
+            <div class="absolute inset-0 flex items-center justify-center z-0 pointer-events-none overflow-hidden">
+                <div class="text-[11vw] sm:text-[10vw] md:text-[12vw] lg:text-[13vw] font-black font-heading text-white/5 whitespace-nowrap promo-bg-text tracking-widest leading-none">
+                    СЛАДКАЯ НУГА
+                </div>
             </div>
             
             <div class="relative z-10 max-w-4xl mx-auto px-4 text-center attention-item">
@@ -458,12 +462,10 @@
     </div>
 
     <!-- PRIVACY MODAL -->
-    <!-- Атрибут data-lenis-prevent говорит Lenis отдать скролл этому элементу -->
     <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" data-lenis-prevent="true">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-bg cursor-pointer" onclick="closePrivacyModal()"></div>
         
         <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass z-10">
-            <!-- Modal Header -->
             <div class="flex justify-between items-center p-6 sm:p-8 border-b border-white/5">
                 <h2 class="text-2xl sm:text-3xl font-black font-heading text-white uppercase tracking-tight">Политика конфиденциальности</h2>
                 <button onclick="closePrivacyModal()" class="text-neutral-400 hover:text-accent transition-colors bg-white/5 p-2 rounded-full hover:bg-white/10">
@@ -471,8 +473,6 @@
                 </button>
             </div>
             
-            <!-- Modal Body (Scrollable) -->
-            <!-- Обязательный атрибут data-lenis-prevent для плавного скролла контента мышью/свайпом -->
             <div class="p-6 sm:p-8 overflow-y-auto modal-scroll text-neutral-300 font-light leading-relaxed space-y-6" data-lenis-prevent="true">
                 <p class="text-accent font-medium">Редакция от 19 марта 2026 года</p>
 
@@ -636,10 +636,14 @@
                 gsap.fromTo(text, { y: 100, opacity: 0 }, { y: 0, opacity: 1, scrollTrigger: { trigger: row, start: "top 70%", end: "center center", scrub: 1 }});
             });
 
-            // Обновленная анимация для карусели (выезжают справа налево)
             gsap.from(".flavor-card", { x: 50, opacity: 0, duration: 0.8, stagger: 0.15, scrollTrigger: { trigger: "#flavors", start: "top 70%", toggleActions: "play reverse play reverse" }});
             
-            gsap.to(".promo-bg-text", { x: "-20%", scrollTrigger: { trigger: "#promo", start: "top bottom", end: "bottom top", scrub: 1 }});
+            // Фикс: легкий параллакс для текста СЛАДКАЯ НУГА, двигаем его на 40px влево-вправо,
+            // не сбивая его центральное позиционирование (которое мы настроили через CSS Flexbox).
+            gsap.fromTo(".promo-bg-text", 
+                { x: 40 }, 
+                { x: -40, scrollTrigger: { trigger: "#promo", start: "top bottom", end: "bottom top", scrub: 1 }}
+            );
         }
     </script>
 </body>
