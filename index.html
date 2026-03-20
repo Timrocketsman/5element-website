@@ -413,24 +413,28 @@
                 <h2 class="text-4xl sm:text-5xl md:text-7xl font-black font-heading mb-6 uppercase text-white">Заряди свой <span class="text-accent">бизнес</span> или <span class="text-accent">семью</span></h2>
                 <p class="text-xl md:text-2xl text-neutral-300 font-light mb-10">Боксы по 15 и 70 штук. Идеально для офиса, фитнес-клуба или домашнего запаса.</p>
                 
-                <!-- БЛОК: ПРОМОКОД (АККОРДЕОН) -->
-                <div class="max-w-2xl mx-auto mb-12 relative z-20">
-                    <button onclick="togglePromo()" id="promo-btn" class="w-full glass p-4 md:p-6 rounded-3xl border border-accent/30 shadow-[0_0_20px_rgba(251,191,36,0.15)] flex items-center justify-between gap-4 group transition-all hover:bg-white/5 hover:border-accent/50 focus:outline-none">
-                        <div class="flex items-center gap-4">
-                            <div class="bg-accent/20 p-3 rounded-full text-accent shrink-0 group-hover:scale-110 transition-transform">
-                                <i data-lucide="gift" class="w-6 h-6 md:w-8 md:h-8 animate-pulse"></i>
+                <!-- БЛОК: ПРОМОКОД (МИНИ-ИКОНКА С ХОВЕРОМ) -->
+                <div class="flex justify-center mb-12 relative z-30">
+                    <div class="group relative cursor-pointer" tabindex="0">
+                        <!-- Иконка-триггер -->
+                        <div class="w-16 h-16 sm:w-20 sm:h-20 bg-primary/80 backdrop-blur-md border border-accent/30 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(251,191,36,0.2)] group-hover:bg-accent/10 transition-all duration-300 group-hover:scale-110 focus:scale-110">
+                            <i data-lucide="gift" class="w-8 h-8 sm:w-10 sm:h-10 text-accent animate-pulse"></i>
+                        </div>
+                        
+                        <!-- Всплывающая подсказка -->
+                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-4 w-[280px] sm:w-[360px] opacity-0 invisible group-hover:opacity-100 group-hover:visible focus:opacity-100 focus:visible transition-all duration-300 transform translate-y-4 group-hover:translate-y-0 focus:translate-y-0 z-50">
+                            <!-- Хвостик -->
+                            <div class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-4 h-4 bg-[#0b1121] border-b border-r border-accent/30 rotate-45 z-0"></div>
+                            <!-- Контент -->
+                            <div class="bg-[#0b1121] p-6 rounded-3xl border border-accent/30 shadow-[0_10px_40px_rgba(0,0,0,0.5)] text-center relative z-10">
+                                <h3 class="text-xl font-bold font-heading text-white mb-2 uppercase flex items-center justify-center gap-2">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-accent"></i> Скидка 20%
+                                </h3>
+                                <p class="text-neutral-300 font-light text-sm leading-relaxed">
+                                    Оформляйте заказ в боте, введите промокод 
+                                    <code class="block mt-3 text-lg font-bold text-accent bg-black/50 py-2 px-4 rounded-xl border border-accent/20 tracking-widest shadow-inner select-all">SITE20</code>
+                                </p>
                             </div>
-                            <span class="text-base sm:text-lg md:text-xl font-bold font-heading text-white uppercase tracking-wider text-left">Получить скидку 20%</span>
-                        </div>
-                        <div class="bg-white/5 p-2 rounded-full shrink-0">
-                            <i data-lucide="chevron-down" id="promo-chevron" class="w-5 h-5 text-accent transition-transform duration-300"></i>
-                        </div>
-                    </button>
-                    
-                    <div id="promo-content" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out opacity-0">
-                        <div class="pt-6 pb-2 px-4 md:px-8 text-center sm:text-left glass rounded-3xl border border-white/5 mt-4">
-                            <h3 class="text-xl font-bold font-heading text-white mb-3 uppercase">Скидка для своих</h3>
-                            <p class="text-neutral-300 font-light text-sm md:text-base leading-relaxed">Оформляйте заказ через нашего Telegram-бота, введите секретный промокод <code class="font-bold text-accent bg-primary px-3 py-1 rounded border border-accent/20 tracking-widest mx-1 shadow-inner">SITE20</code> и получите скидку на всю корзину!</p>
                         </div>
                     </div>
                 </div>
@@ -560,29 +564,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <script>
-        // Скрипт для работы аккордеона с промокодом
-        function togglePromo() {
-            const content = document.getElementById('promo-content');
-            const chevron = document.getElementById('promo-chevron');
-            
-            if (content.classList.contains('max-h-0')) {
-                // Открываем блок
-                content.classList.remove('max-h-0', 'opacity-0');
-                content.classList.add('max-h-96', 'opacity-100'); 
-                chevron.classList.add('rotate-180');
-            } else {
-                // Закрываем блок
-                content.classList.add('max-h-0', 'opacity-0');
-                content.classList.remove('max-h-96', 'opacity-100');
-                chevron.classList.remove('rotate-180');
-            }
-            
-            // Обновляем ScrollTrigger, чтобы фон и другие анимации не съехали из-за изменения высоты блока
-            setTimeout(() => {
-                if (typeof ScrollTrigger !== 'undefined') ScrollTrigger.refresh();
-            }, 550);
-        }
-
         // Умный фикс для загрузки картинок
         document.addEventListener('error', function(event) {
             let el = event.target;
