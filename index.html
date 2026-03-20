@@ -143,7 +143,7 @@
             </div>
         </section>
 
-        <!-- TEXTURE (RESTORED FEATURES) -->
+        <!-- TEXTURE -->
         <section id="product" class="py-32 relative z-10 bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
@@ -151,7 +151,6 @@
                     <h2 class="text-4xl sm:text-5xl md:text-6xl font-black font-heading uppercase">Нежное облако, <br><span class="text-neutral-500">а не камень</span></h2>
                 </div>
 
-                <!-- Feature 1 -->
                 <div class="flex flex-col md:flex-row items-center gap-16 mb-32 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -165,7 +164,6 @@
                     </div>
                 </div>
 
-                <!-- Feature 2 -->
                 <div class="flex flex-col md:flex-row-reverse items-center gap-16 mb-32 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -179,7 +177,6 @@
                     </div>
                 </div>
 
-                 <!-- Feature 3 -->
                  <div class="flex flex-col md:flex-row items-center gap-16 feature-row">
                     <div class="w-full md:w-1/2 flex justify-center feature-img">
                         <div class="relative w-72 h-72 md:w-96 md:h-96">
@@ -195,7 +192,7 @@
             </div>
         </section>
 
-        <!-- FLAVORS (FULL 18 CARDS GALLERY) -->
+        <!-- FLAVORS (FULL 18 CARDS GALLERY - ALL WEBP FIX) -->
         <section id="flavors" class="py-32 relative bg-primary overflow-hidden">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-16 attention-item">
@@ -206,183 +203,201 @@
                 <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-12 pt-4 no-scrollbar cursor-grab active:cursor-grabbing flavor-carousel">
                     
                     <!-- 1. nuga_classicheksaya.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_classicheksaya.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-accent/30 p-3 rounded-2xl backdrop-blur-md text-accent shadow-lg z-10"><i data-lucide="layers"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-accent/10 hover:border-accent/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-gold-glow relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_classicheksaya.webp" alt="Текстура" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-accent/30 backdrop-blur-md p-3 rounded-2xl text-accent shadow-lg z-10"><i data-lucide="layers"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Текстура</h3>
-                        <p class="text-neutral-400 text-sm">Тягучая магия и цельные орехи в каждом срезе. Почувствуйте натуральность.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-accent mb-2">Текстура</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Тягучая магия</h3>
+                        <p class="text-neutral-400 font-light text-sm">Взгляните на этот разрез — никакой химии, только натуральная энергия яичного белка.</p>
                     </div>
 
-                    <!-- 2. nuga_assortiment.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_assortiment.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-secondary/30 p-3 rounded-2xl backdrop-blur-md text-secondary shadow-lg z-10"><i data-lucide="grid"></i></div>
+                    <!-- 2. nuga_assortiment.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-secondary/10 hover:border-secondary/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-blue-glow relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_assortiment.webp" alt="Ассортимент" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-secondary/30 backdrop-blur-md p-3 rounded-2xl text-secondary shadow-lg z-10"><i data-lucide="grid"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Палитра</h3>
-                        <p class="text-neutral-400 text-sm">Три базовых направления: лимон, какао и клюква в одной упаковке.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-secondary mb-2">Выбор</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Палитра вкусов</h3>
+                        <p class="text-neutral-400 font-light text-sm">Три базовых направления: лимон, какао и клюква в одной упаковке.</p>
                     </div>
 
                     <!-- 3. nuga_mindal_limon.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_mindal_limon.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-yellow-400/30 p-3 rounded-2xl backdrop-blur-md text-yellow-400 shadow-lg z-10"><i data-lucide="zap"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-yellow-400/10 hover:border-yellow-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-gold-glow relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_mindal_limon.webp" alt="Лимон" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-yellow-400/30 backdrop-blur-md p-3 rounded-2xl text-yellow-400 shadow-lg z-10"><i data-lucide="zap"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Лимон</h3>
-                        <p class="text-neutral-400 text-sm">Цитрусовая бодрость и свежесть цедры. Идеально для продуктивного дня.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-yellow-400 mb-2">Энергия</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Миндаль & Лимон</h3>
+                        <p class="text-neutral-400 font-light text-sm">Цитрусовая свежесть для продуктивного дня. Идеальный заряд бодрости.</p>
                     </div>
 
-                    <!-- 4. nuga_mindal_kakao.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_mindal_kakao.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-orange-800/30 p-3 rounded-2xl backdrop-blur-md text-orange-200 shadow-lg z-10"><i data-lucide="coffee"></i></div>
+                    <!-- 4. nuga_mindal_kakao.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-orange-800/10 hover:border-orange-800/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-orange-900/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_mindal_kakao.webp" alt="Какао" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-orange-800/30 backdrop-blur-md p-3 rounded-2xl text-orange-200 shadow-lg z-10"><i data-lucide="coffee"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Какао</h3>
-                        <p class="text-neutral-400 text-sm">Шоколадный вкус с миндальным хрустом. Антистресс в каждом кусочке.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-orange-400 mb-2">Антистресс</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Шоколадный уют</h3>
+                        <p class="text-neutral-400 font-light text-sm">Глубокий вкус темного какао и хрустящего миндаля для теплых вечеров.</p>
                     </div>
 
                     <!-- 5. nuga_mindal_klukva.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_mindal_klukva.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-red-500/30 p-3 rounded-2xl backdrop-blur-md text-red-100 shadow-lg z-10"><i data-lucide="cherry"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-red-500/10 hover:border-red-500/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-red-900/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_mindal_klukva.webp" alt="Клюква" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-red-500/30 backdrop-blur-md p-3 rounded-2xl text-red-100 shadow-lg z-10"><i data-lucide="cherry"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Клюква</h3>
-                        <p class="text-neutral-400 text-sm">Ягодная кислинка и антиоксиданты. Поддержка иммунитета со вкусом.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-red-400 mb-2">Иммунитет</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Ягодный заряд</h3>
+                        <p class="text-neutral-400 font-light text-sm">Кисло-сладкая клюква и цельный миндаль — природная защита организма.</p>
                     </div>
 
-                    <!-- 6. nuga_shoubox.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_shoubox.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-white/20 p-3 rounded-2xl backdrop-blur-md text-white shadow-lg z-10"><i data-lucide="package"></i></div>
+                    <!-- 6. nuga_shoubox.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-white/10 hover:border-white/30 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-white/5 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_shoubox.webp" alt="Шоубокс" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-white/20 backdrop-blur-md p-3 rounded-2xl text-white shadow-lg z-10"><i data-lucide="package"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Шоубокс</h3>
-                        <p class="text-neutral-400 text-sm">Удобный формат для бизнеса. Все вкусы «5 Элемент» всегда под рукой.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-neutral-400 mb-2">Формат</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Личный шоубокс</h3>
+                        <p class="text-neutral-400 font-light text-sm">Удобная упаковка для бизнеса или дома. Все вкусы всегда под рукой.</p>
                     </div>
 
-                    <!-- 7. nuga_korreks.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_korreks.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-orange-400/30 p-3 rounded-2xl backdrop-blur-md text-orange-50 shadow-lg z-10"><i data-lucide="gift"></i></div>
+                    <!-- 7. nuga_korreks.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-orange-400/10 hover:border-orange-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-orange-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_korreks.webp" alt="Коррекс" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-orange-400/30 backdrop-blur-md p-3 rounded-2xl text-orange-50 shadow-lg z-10"><i data-lucide="gift"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Коррекс</h3>
-                        <p class="text-neutral-400 text-sm">Стильная индивидуальная подача. Идеально для подарка или дегустации.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-orange-500 mb-2">Подарок</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Крафтовый коррекс</h3>
+                        <p class="text-neutral-400 font-light text-sm">Элегантная подача нашего продукта в стильной индивидуальной упаковке.</p>
                     </div>
 
-                    <!-- 8. nuga_upakovka_na_stole.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_upakovka_na_stole.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-amber-600/30 p-3 rounded-2xl backdrop-blur-md text-amber-100 shadow-lg z-10"><i data-lucide="utensils"></i></div>
+                    <!-- 8. nuga_upakovka_na_stole.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-amber-600/10 hover:border-amber-600/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-amber-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_upakovka_na_stole.webp" alt="На столе" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-amber-600/30 backdrop-blur-md p-3 rounded-2xl text-amber-100 shadow-lg z-10"><i data-lucide="utensils"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Эстетика</h3>
-                        <p class="text-neutral-400 text-sm">Крафт и золото. Продукт, который украсит любую витрину или стол.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-2">Стиль</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Красота деталей</h3>
+                        <p class="text-neutral-400 font-light text-sm">Продукт, который украсит вашу витрину или ваш утренний стол.</p>
                     </div>
 
                     <!-- 9. nuga_upakovka.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_upakovka.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-accent/30 p-3 rounded-2xl backdrop-blur-md text-accent shadow-lg z-10"><i data-lucide="shield-check"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-accent/10 hover:border-accent/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-gold-glow relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_upakovka.webp" alt="Упаковка" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-accent/30 backdrop-blur-md p-3 rounded-2xl text-accent shadow-lg z-10"><i data-lucide="shield-check"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Бренд</h3>
-                        <p class="text-neutral-400 text-sm">Честное имя и премиальное исполнение. Качество в каждом символе.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-accent mb-2">Качество</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Честный бренд</h3>
+                        <p class="text-neutral-400 font-light text-sm">Мы гордимся прозрачностью состава и премиальным оформлением.</p>
                     </div>
 
-                    <!-- 10. nuga_naturalnaya.jpg -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_naturalnaya.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-green-500/30 p-3 rounded-2xl backdrop-blur-md text-green-400 shadow-lg z-10"><i data-lucide="heart"></i></div>
+                    <!-- 10. nuga_naturalnaya.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-green-500/10 hover:border-green-500/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-green-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_naturalnaya.webp" alt="Натурально" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-green-500/30 backdrop-blur-md p-3 rounded-2xl text-green-100 shadow-lg z-10"><i data-lucide="heart"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Состав</h3>
-                        <p class="text-neutral-400 text-sm">Миндаль, корица, натуральные ягоды. Польза, созданная природой.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-green-400 mb-2">Здоровье</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Сила природы</h3>
+                        <p class="text-neutral-400 font-light text-sm">Орехи, семена и ягоды — никакой химии, только природная польза.</p>
                     </div>
 
                     <!-- 11. nuga_s_orehami.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_s_orehami.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-amber-400/30 p-3 rounded-2xl backdrop-blur-md text-amber-50 shadow-lg z-10"><i data-lucide="nut"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-amber-400/10 hover:border-amber-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-amber-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_s_orehami.webp" alt="Орехи" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-amber-400/30 backdrop-blur-md p-3 rounded-2xl text-amber-50 shadow-lg z-10"><i data-lucide="nut"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Орехи</h3>
-                        <p class="text-neutral-400 text-sm">Честная порция белка. Только цельный отборный миндаль высшего сорта.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-amber-500 mb-2">Хруст</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Цельный миндаль</h3>
+                        <p class="text-neutral-400 font-light text-sm">Максимум орехов в каждом кусочке. Честная порция белка и жиров.</p>
                     </div>
 
                     <!-- 12. nuga_na_prirode.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_na_prirode.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-emerald-400/30 p-3 rounded-2xl backdrop-blur-md text-emerald-50 shadow-lg z-10"><i data-lucide="sun"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-emerald-400/10 hover:border-emerald-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-emerald-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_na_prirode.webp" alt="Природа" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-emerald-400/30 backdrop-blur-md p-3 rounded-2xl text-emerald-50 shadow-lg z-10"><i data-lucide="sun"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Прогулка</h3>
-                        <p class="text-neutral-400 text-sm">Заряд энергии на свежем воздухе. Возьмите «5 Элемент» в дорогу.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-emerald-500 mb-2">Свобода</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">На свежем воздухе</h3>
+                        <p class="text-neutral-400 font-light text-sm">Удобный формат, чтобы взять с собой на прогулку или в путешествие.</p>
                     </div>
 
                     <!-- 13. nuga_perekus.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_perekus.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-pink-400/30 p-3 rounded-2xl backdrop-blur-md text-pink-50 shadow-lg z-10"><i data-lucide="users"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-pink-400/10 hover:border-pink-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-pink-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_perekus.webp" alt="Компания" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-pink-400/30 backdrop-blur-md p-3 rounded-2xl text-pink-50 shadow-lg z-10"><i data-lucide="users"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Вместе</h3>
-                        <p class="text-neutral-400 text-sm">Удовольствие на двоих. Полезный десерт, который сближает.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-pink-500 mb-2">Вместе</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Время для близких</h3>
+                        <p class="text-neutral-400 font-light text-sm">Полезное угощение, которым хочется делиться с друзьями.</p>
                     </div>
 
                     <!-- 14. nuga_doma.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_doma.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-indigo-400/30 p-3 rounded-2xl backdrop-blur-md text-indigo-50 shadow-lg z-10"><i data-lucide="home"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-indigo-400/10 hover:border-indigo-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-indigo-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_doma.webp" alt="Уют" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-indigo-400/30 backdrop-blur-md p-3 rounded-2xl text-indigo-50 shadow-lg z-10"><i data-lucide="home"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Дом</h3>
-                        <p class="text-neutral-400 text-sm">Ваши уютные семейные вечера станут еще теплее с нашей нугой.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-indigo-500 mb-2">Уют</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Семейные моменты</h3>
+                        <p class="text-neutral-400 font-light text-sm">Идеальное дополнение к вашему домашнему вечеру с чашкой чая.</p>
                     </div>
 
                     <!-- 15. nuga_na_prilavkah.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_na_prilavkah.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-teal-400/30 p-3 rounded-2xl backdrop-blur-md text-teal-50 shadow-lg z-10"><i data-lucide="shopping-bag"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-teal-400/10 hover:border-teal-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-teal-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_na_prilavkah.webp" alt="Магазин" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-teal-400/30 backdrop-blur-md p-3 rounded-2xl text-teal-50 shadow-lg z-10"><i data-lucide="shopping-bag"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Магазин</h3>
-                        <p class="text-neutral-400 text-sm">Хит продаж. Ищите яркую упаковку «5 Элемент» на полках.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-teal-500 mb-2">Выбор</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">На полках страны</h3>
+                        <p class="text-neutral-400 font-light text-sm">Ищите «5 Элемент» в лучших магазинах вашего города.</p>
                     </div>
 
                     <!-- 16. nuga_k_chay.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_k_chay.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-red-400/30 p-3 rounded-2xl backdrop-blur-md text-red-500 shadow-lg z-10"><i data-lucide="coffee"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-red-400/10 hover:border-red-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-red-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_k_chay.webp" alt="Чай" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-red-400/30 backdrop-blur-md p-3 rounded-2xl text-red-50 shadow-lg z-10"><i data-lucide="coffee"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Ритуал</h3>
-                        <p class="text-neutral-400 text-sm">Утренняя чашка кофе и «5 Элемент» — ваш залог успешного дня.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-red-500 mb-2">Ритуал</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Утренний кофе</h3>
+                        <p class="text-neutral-400 font-light text-sm">Сделайте свой завтрак по-настоящему полезным и вкусным.</p>
                     </div>
 
                     <!-- 17. nuga_sladkoe_lakomstvo.webp -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_sladkoe_lakomstvo.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-purple-400/30 p-3 rounded-2xl backdrop-blur-md text-purple-500 shadow-lg z-10"><i data-lucide="sparkles"></i></div>
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-purple-400/10 hover:border-purple-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-purple-500/10 relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_sladkoe_lakomstvo.webp" alt="Лакомство" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-purple-400/30 backdrop-blur-md p-3 rounded-2xl text-purple-500 shadow-lg z-10"><i data-lucide="sparkles"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Нежность</h3>
-                        <p class="text-neutral-400 text-sm">Лакомство, которое дарит радость без компромиссов со здоровьем.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-purple-500 mb-2">Нежность</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Сладкий десерт</h3>
+                        <p class="text-neutral-400 font-light text-sm">Лакомство, за которое не нужно извиняться перед своим телом.</p>
                     </div>
 
-                    <!-- 18. nuga_dlya_ofisa.webp (Бизнес) -->
-                    <div class="glass p-6 rounded-[32px] shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 transition-all duration-500 group border border-white/5">
-                        <div class="h-64 rounded-2xl mb-6 overflow-hidden relative">
-                            <img src="nuga_dlya_ofisa.webp" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                            <div class="absolute top-4 right-4 bg-blue-400/30 p-3 rounded-2xl backdrop-blur-md text-blue-100 shadow-lg z-10"><i data-lucide="zap"></i></div>
+                    <!-- 18. nuga_dlya_ofisa.webp -->
+                    <div class="glass p-6 sm:p-8 rounded-[32px] border border-blue-400/10 hover:border-blue-400/50 transition-all duration-500 group flavor-card shrink-0 w-[85vw] sm:w-[400px] snap-center hover:-translate-y-2 hover:shadow-blue-glow relative flex flex-col">
+                        <div class="w-full h-64 bg-primary/50 rounded-2xl mb-6 relative overflow-hidden border border-white/5">
+                            <img src="nuga_dlya_ofisa.webp" alt="Для офиса" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            <div class="absolute top-4 right-4 bg-blue-400/30 backdrop-blur-md p-3 rounded-2xl text-blue-100 shadow-lg z-10"><i data-lucide="zap"></i></div>
                         </div>
-                        <h3 class="text-2xl font-bold uppercase mb-2 text-white">Бизнес</h3>
-                        <p class="text-neutral-400 text-sm">Заряди свой проект правильной энергией. Рост начинается с фокуса.</p>
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-2">Бизнес</div>
+                        <h3 class="text-2xl font-bold font-heading mb-3 text-white uppercase">Для больших дел</h3>
+                        <p class="text-neutral-400 font-light text-sm">Зарядите свой проект правильной энергией вместе с нашими боксами.</p>
                     </div>
 
                 </div>
@@ -471,7 +486,20 @@
         </div>
     </footer>
 
-    <!-- PRIVACY MODAL (RESTORED FULL TEXT) -->
+    <!-- COOKIE BANNER -->
+    <div id="cookie-banner" class="fixed bottom-0 w-full glass border-t border-accent/20 p-4 z-50 transform translate-y-full transition-transform duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p class="text-neutral-300 text-sm text-center sm:text-left font-light">
+                Мы используем файлы cookie. Продолжая использовать сайт, вы соглашаетесь с нашей 
+                <a href="#" onclick="openPrivacyModal(event)" class="text-accent hover:text-white underline transition-colors">Политикой конфиденциальности</a>.
+            </p>
+            <button id="accept-cookies" class="bg-accent text-primary px-8 py-2.5 rounded-xl font-bold text-sm hover:bg-accent-hover transition-colors whitespace-nowrap shadow-gold-glow">
+                Понятно
+            </button>
+        </div>
+    </div>
+
+    <!-- PRIVACY MODAL -->
     <div id="privacy-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6" data-lenis-prevent="true">
         <div class="absolute inset-0 bg-black/80 backdrop-blur-sm modal-bg cursor-pointer" onclick="closePrivacyModal()"></div>
         <div class="relative bg-primary-light border border-white/10 rounded-[32px] w-full max-w-4xl max-h-[85vh] shadow-2xl modal-content flex flex-col glass z-10">
@@ -534,12 +562,16 @@
             const modal = document.getElementById('privacy-modal');
             modal.classList.remove('hidden');
             modal.classList.add('flex');
+            gsap.fromTo(".modal-bg", {opacity: 0}, {opacity: 1, duration: 0.4});
             gsap.fromTo(".modal-content", {opacity: 0, y: 50, scale: 0.95}, {opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(1.5)"});
         }
 
         function closePrivacyModal() {
+            gsap.to(".modal-bg", {opacity: 0, duration: 0.3});
             gsap.to(".modal-content", {opacity: 0, y: 50, scale: 0.95, duration: 0.3, onComplete: () => {
-                document.getElementById('privacy-modal').classList.add('hidden');
+                const modal = document.getElementById('privacy-modal');
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
             }});
         }
 
@@ -547,6 +579,16 @@
             lenis = new Lenis({ duration: 1.2, easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), smooth: true });
             function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
             requestAnimationFrame(raf);
+
+            let lastScroll = 0;
+            const header = document.getElementById('header');
+            lenis.on('scroll', ({ scroll }) => {
+                if (scroll > 100) {
+                    if (scroll > lastScroll) { header.style.transform = 'translateY(-100%)'; }
+                    else { header.style.transform = 'translateY(0)'; header.classList.add('bg-primary/90', 'shadow-lg'); }
+                } else { header.style.transform = 'translateY(0)'; header.classList.remove('bg-primary/90', 'shadow-lg'); }
+                lastScroll = scroll;
+            });
 
             gsap.registerPlugin(ScrollTrigger);
             lenis.on('scroll', ScrollTrigger.update);
