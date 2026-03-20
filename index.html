@@ -5,10 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 ЭЛЕМЕНТ | Космическая энергия в каждом кусочке</title>
     
-    <!-- Иконки и мобильный вид -->
+    <!-- Иконки и PWA (Мобильное приложение) -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
+    
+    <!-- Теги для iOS (Полноэкранный режим без сафари-панелей) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="5 ЭЛЕМЕНТ">
+    
     <meta name="theme-color" content="#0F172A">
+    
+    <!-- Умный манифест для экрана загрузки Android (убирает белый фон) -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"5 ЭЛЕМЕНТ","short_name":"5 ЭЛЕМЕНТ","display":"standalone","background_color":"#0F172A","theme_color":"#0F172A","icons":[{"src":"logo.jpg","sizes":"192x192","type":"image/jpeg"},{"src":"logo.jpg","sizes":"512x512","type":"image/jpeg"}]}'>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -143,7 +152,7 @@
             </div>
         </section>
 
-        <!-- TEXTURE (ИСПРАВЛЕНО: Адаптивные шрифты для длинных слов, чтобы не вылезали за края на мобильных) -->
+        <!-- TEXTURE -->
         <section id="product" class="py-32 relative z-10 bg-primary">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-24 attention-item">
@@ -159,7 +168,6 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text">
-                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК, добавлено break-words -->
                         <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words hyphens-auto">Инвертированный сироп</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Секрет идеальной тягучести. Фруктоза и глюкоза в правильной пропорции создают текстуру, которая тает во рту, не перегружая поджелудочную.</p>
                     </div>
@@ -173,7 +181,6 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text text-left md:text-right">
-                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК -->
                         <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words">Яичный белок (Альбумин)</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Взбиваем до состояния невесомости. Это не просто сладость — это строительный материал для мышц и гарантия долгой сытости.</p>
                     </div>
@@ -187,7 +194,6 @@
                         </div>
                     </div>
                     <div class="w-full md:w-1/2 feature-text">
-                        <!-- Исправлено: text-2xl для телефонов, sm:text-3xl для ПК -->
                         <h3 class="text-2xl sm:text-3xl font-bold font-heading mb-6 uppercase break-words">Суперфуды и Орехи</h3>
                         <p class="text-xl text-neutral-300 leading-relaxed font-light">Более 20 сочетаний: миндаль, чиа, клюква, манго. Мощный заряд витаминов, цинка и антиоксидантов прямо на ходу.</p>
                     </div>
