@@ -2,61 +2,31 @@
 <html lang="ru" class="scroll-smooth">
 <head>
     <script>
-  // Проверяем: если протокол не https ИЛИ в адресе есть www
-  if (location.protocol !== 'https:' || location.hostname.startsWith('www.')) {
-    // Перенаправляем на чистый https домен
-    location.replace('https://nuga5element.ru' + location.pathname + location.search);
-  }
-</script>
+        if (location.protocol !== 'https:' || location.hostname.startsWith('www.')) {
+            location.replace('https://nuga5element.ru' + location.pathname + location.search);
+        }
+    </script>
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 ЭЛЕМЕНТ | Космическая энергия в каждом кусочке</title>
-    <!-- Основные мета-теги -->
-<meta name="description" content="Ремесленная нуга «5 Элемент» — натуральная энергия яичного белка, орехов и ягод. Идеальный десерт для бизнеса и семьи.">
 
-<!-- Open Graph (для Telegram, ВКонтакте, Дзен и Одноклассников) -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nuga5element.ru/">
-<meta property="og:title" content="5 Элемент | Сладкая ремесленная нуга">
-<meta property="og:description" content="Заряди свой бизнес или семью! Боксы по 15 и 70 штук. Натуральный состав без химии.">
-<meta property="og:image" content="preview.jpg">
+    <meta name="description" content="Ремесленная нуга «5 Элемент» — натуральная энергия яичного белка, орехов и ягод. Идеальный десерт для бизнеса и семьи.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nuga5element.ru/">
+    <meta property="og:title" content="5 Элемент | Сладкая ремесленная нуга">
+    <meta property="og:description" content="Заряди свой бизнес или семью! Боксы по 15 и 70 штук. Натуральный состав без химии.">
+    <meta property="og:image" content="https://nuga5element.ru/preview.jpg">
 
-<!-- Twitter Card (для корректного отображения в некоторых мессенджерах) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://nuga5element.ru/">
-<meta name="twitter:title" content="5 Элемент | Сладкая ремесленная нуга">
-<meta name="twitter:description" content="Ремесленная нуга ручной работы. Заряди свой бизнес или семью!">
-<meta name="twitter:image" content="preview.jpg">
-    
-    <!-- Иконки и PWA (Мобильное приложение) -->
     <link rel="icon" type="image/jpeg" href="logo.jpg">
     <link rel="apple-touch-icon" href="logo.jpg">
-    
-    <!-- Теги для iOS (Полноэкранный режим без сафари-панелей) -->
-   <!-- Иконки и PWA (Мобильное приложение) -->
-    <link rel="icon" type="image/jpeg" href="logo.jpg">
-    <link rel="apple-touch-icon" href="logo.jpg">
-    
-    <!-- Теги для iOS (Полноэкранный режим без сафари-панелей) -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="5 ЭЛЕМЕНТ">
-    
-    <!-- Жестко задаем темный цвет интерфейса для всех браузеров -->
-    <meta name="theme-color" content="#0F172A">
-    <meta name="color-scheme" content="dark">
-    
-    <!-- Базовый сплэш-скрин для iOS (чтобы перебить белый фон) -->
-    <link rel="apple-touch-startup-image" href="logo.jpg">
-    
-    <!-- Умный манифест для экрана загрузки Android (убирает белый фон) -->
     <link rel="manifest" href="manifest.json">
     
-    !-- Tailwind CSS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0F172A">
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -69,50 +39,17 @@
                     fontFamily: {
                         heading: ['Montserrat', 'sans-serif'],
                         body: ['Inter', 'sans-serif'],
-                    },
-                    boxShadow: {
-                        'gold-glow': '0 0 30px rgba(251, 191, 36, 0.15)',
-                        'blue-glow': '0 0 30px rgba(56, 189, 248, 0.15)',
                     }
                 }
             }
         }
     </script>
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@500;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <style>
-        html.lenis, html.lenis body { height: auto; width: 100vw; overflow-x: hidden; }
-        .lenis.lenis-smooth { scroll-behavior: auto !important; }
         body { font-family: 'Inter', sans-serif; background-color: #0F172A; color: #fff; overflow-x: hidden; }
-        h1, h2, h3, h4, .font-heading { font-family: 'Montserrat', sans-serif; }
-        
-        .cosmic-bg {
-            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1;
-            background: #0F172A;
-            background-image: radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.08) 0%, transparent 40%), radial-gradient(circle at 85% 30%, rgba(251, 191, 36, 0.05) 0%, transparent 40%);
-        }
-
         .glass { background: rgba(30, 41, 59, 0.6); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.05); }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        #loader {
-            position: fixed; inset: 0; z-index: 9999; background: #0F172A; 
-            display: flex; justify-content: center; align-items: center; flex-direction: column;
-            transition: opacity 0.8s ease;
-        }
-
-        .modal-scroll::-webkit-scrollbar { width: 6px; }
-        .modal-scroll::-webkit-scrollbar-track { background: rgba(255,255,255,0.05); border-radius: 10px; }
-        .modal-scroll::-webkit-scrollbar-thumb { background: rgba(251,191,36,0.3); border-radius: 10px; }
-        
-        .modal-scroll {
-            overscroll-behavior: contain;
-            -webkit-overflow-scrolling: touch;
-        }
     </style>
 </head>
 <body class="antialiased selection:bg-accent selection:text-primary">
