@@ -34,14 +34,24 @@
     <link rel="apple-touch-icon" href="logo.jpg">
     
     <!-- Теги для iOS (Полноэкранный режим без сафари-панелей) -->
+   <!-- Иконки и PWA (Мобильное приложение) -->
+    <link rel="icon" type="image/jpeg" href="logo.jpg">
+    <link rel="apple-touch-icon" href="logo.jpg">
+    
+    <!-- Теги для iOS (Полноэкранный режим без сафари-панелей) -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="5 ЭЛЕМЕНТ">
     
+    <!-- Жестко задаем темный цвет интерфейса для всех браузеров -->
     <meta name="theme-color" content="#0F172A">
+    <meta name="color-scheme" content="dark">
+    
+    <!-- Базовый сплэш-скрин для iOS (чтобы перебить белый фон) -->
+    <link rel="apple-touch-startup-image" href="logo.jpg">
     
     <!-- Умный манифест для экрана загрузки Android (убирает белый фон) -->
-   <link rel="manifest" href='data:application/manifest+json,{"name":"5 ЭЛЕМЕНТ","short_name":"5 ЭЛЕМЕНТ","display":"standalone","start_url":"/"}'>
+    <link rel="manifest" href='data:application/manifest+json,{"name":"5 ЭЛЕМЕНТ","short_name":"5 ЭЛЕМЕНТ","icons":[{"src":"logo.jpg","type":"image/jpeg","sizes":"512x512"}],"display":"standalone","start_url":"/","background_color":"#0F172A","theme_color":"#0F172A"}'>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
