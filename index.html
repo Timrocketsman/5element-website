@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth">
 <head>
+    <script>
+  // Проверяем: если протокол не https ИЛИ в адресе есть www
+  if (location.protocol !== 'https:' || location.hostname.startsWith('www.')) {
+    // Перенаправляем на чистый https домен
+    location.replace('https://nuga5element.ru' + location.pathname + location.search);
+  }
+</script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>5 ЭЛЕМЕНТ | Космическая энергия в каждом кусочке</title>
